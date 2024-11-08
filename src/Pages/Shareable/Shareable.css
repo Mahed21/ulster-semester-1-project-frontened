@@ -1,0 +1,7 @@
+.navbar {
+  background-color: #d7d6d6;
+}
+.nav-item .nav-link {
+  color: black !important;
+  font-size: larger;
+}
