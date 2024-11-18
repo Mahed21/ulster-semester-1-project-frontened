@@ -1,36 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../Context/UseAuth";
 import VedioLoad from "./VedioLoad";
 import "./Home.css";
 
 const Home = () => {
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["repoData"],
+    queryFn: () =>
+      fetch("http://localhost:5000/videoDetails").then((res) => res.json()),
+  });
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/videoDetails");
-        const data = await response.json();
-        setVideos(data); // Set the videos state
-        setLoading(false); // Set loading to false after fetching data
-      } catch (error) {
-        console.error("Error fetching videos:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchVideos();
-  }, []); // Run this effect only once when the component mounts
-
-  if (loading) {
+  if (isLoading) {
     return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (!data || data.length === 0) {
+    return <p>No videos available</p>;
   }
 
   return (
     <div className="video-list">
-      {videos.map((list) => (
-        <VedioLoad list={list} key={list._id}></VedioLoad>
+      {data.map((list) => (
+        <VedioLoad list={list} key={list._id} afterUpdate={() => refetch()} />
       ))}
     </div>
   );

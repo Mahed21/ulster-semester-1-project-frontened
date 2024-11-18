@@ -23,10 +23,8 @@ const UploadVideo = () => {
     formData.append("name", user.displayName);
     formData.append("email", user.email);
 
-    const initialLikes = [{ username: "", useremail: "" }];
-    const initialComments = [
-      { username: "", useremail: "", comment: "", time: "" },
-    ];
+    const initialLikes = [];
+    const initialComments = [];
     formData.append("likes", JSON.stringify(initialLikes)); // Backend can parse this field as JSON
     formData.append("comments", JSON.stringify(initialComments));
 
