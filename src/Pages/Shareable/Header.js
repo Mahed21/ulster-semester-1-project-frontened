@@ -47,12 +47,6 @@ const Header = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <NavLink className="nav-link" to="#">
-                  Contact
-                </NavLink>
-              </li>
-
               {user.email === admin ? (
                 <li className="nav-item dropdown">
                   <NavLink
@@ -87,11 +81,7 @@ const Header = () => {
                       Upload Video
                     </NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/">
-                      Profile
-                    </NavLink>
-                  </li>
+
                   <li className="nav-item">
                     <NavLink className="nav-link" onClick={Logout} to="/login">
                       Logout
