@@ -6,7 +6,9 @@ const LoadData = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
-      fetch("http://localhost:5000/videoDetails").then((res) => res.json()),
+      fetch(
+        "https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/videoDetails"
+      ).then((res) => res.json()),
   });
 
   if (isLoading) {

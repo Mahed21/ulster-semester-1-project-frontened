@@ -9,7 +9,9 @@ const Header = () => {
   const [admin, setAdmin] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
+    fetch(
+      "https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/admin"
+    )
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
       .catch((error) => console.error("Error fetching data:", error));

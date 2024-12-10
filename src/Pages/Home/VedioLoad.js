@@ -33,8 +33,8 @@ const VedioLoad = (props) => {
     try {
       const url =
         emailExists.length > 0
-          ? `http://localhost:5000/videoDetails/${id}/dislike` // Dislike endpoint
-          : `http://localhost:5000/videoDetails/${id}/like`; // Like endpoint
+          ? `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${id}/dislike` // Dislike endpoint
+          : `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${id}/like`; // Like endpoint
 
       const response = await fetch(url, {
         method: emailExists.length > 0 ? "DELETE" : "POST", // Use DELETE for dislike
@@ -67,7 +67,7 @@ const VedioLoad = (props) => {
     }
 
     try {
-      const url = `http://localhost:5000/videoDetails/${_id}/comment`; // Comment endpoint
+      const url = `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${_id}/comment`; // Comment endpoint
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -101,7 +101,7 @@ const VedioLoad = (props) => {
       </h3>
       <video width="100%" height="200" controls>
         <source
-          src={`http://localhost:5000/videoDetails/${fileId}`}
+          src={`https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${fileId}`}
           type="video/mp4"
         />
       </video>

@@ -29,10 +29,13 @@ const UploadVideo = () => {
     formData.append("comments", JSON.stringify(initialComments));
 
     try {
-      const response = await fetch("http://localhost:5000/videoDetails", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/videoDetails",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const result = await response.json();
       if (result.success) {

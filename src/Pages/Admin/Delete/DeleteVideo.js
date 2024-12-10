@@ -6,12 +6,15 @@ const DeleteVideo = (props) => {
   const { _id, title, description, fileId } = props.list;
   const { afterUpdate } = props;
   const deleteVideo = (id) => {
-    fetch(`http://localhost:5000/videoDetails/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to delete item");
@@ -29,7 +32,7 @@ const DeleteVideo = (props) => {
     <div className="video-card">
       <video width="100%" height="200" controls>
         <source
-          src={`http://localhost:5000/videoDetails/${fileId}`}
+          src={`https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${fileId}`}
           type="video/mp4"
         />
       </video>
