@@ -7,7 +7,7 @@ const DeleteVideo = (props) => {
   const { afterUpdate } = props;
   const deleteVideo = (id) => {
     fetch(
-      `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${id}`,
+      `https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/videoDetails/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -32,7 +32,7 @@ const DeleteVideo = (props) => {
     <div className="video-card">
       <video width="100%" height="200" controls>
         <source
-          src={`https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/${fileId}`}
+          src={`https://ulster-sem1-server-b0hbh5gsdwcqhah3.uksouth-01.azurewebsites.net/videoDetails/${fileId}`}
           type="video/mp4"
         />
       </video>
